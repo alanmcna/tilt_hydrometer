@@ -1,0 +1,11 @@
+[Unit]
+Description=Tilt Hydrometer Flask API/Web Server
+After=network.target
+[Service]
+Type=simple
+Restart=always
+Environment=PYTHONPATH=/home/ubuntu/.local/lib/python3.11/site-packages
+ExecStart=/usr/bin/python /home/ubuntu/tilt_hydrometer/app.py
+WorkingDirectory=/home/ubuntu/tilt_hydrometer
+[Install]
+WantedBy=multi-user.target

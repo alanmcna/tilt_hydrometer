@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+<title>Co2, tVOC and Temperature</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+img { 
+  width: 50%; 
+  margin: auto; 
+} 
+
+@media screen and (min-width: 480px) {
+  img { 
+    width: 80%; 
+    margin: auto; 
+  } 
+}
+</style>
+</head>
+<body>
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/></svg>&nbsp;Tilt Hydrometer
+    </a>
+  </div>
+</nav>
+<div class="container my-5">
+  <div class="row"><div class="col"><hr/></div></div>
+  <div class="row">
+    <div class="col fs-1"><b>Latest Hydrometer Reading</b></div>
+  </div>
+  <div class="row">
+    <div class="col fs-2"><b>Date/Time:</b></div>
+    <div class="col fs-2" id="dateTimeHydrometer"></div>
+  </div>
+  <div class="row">
+    <div class="col fs-2"><b>Gravity:</b></div>
+    <div class="col fs-2" id="gravity"></div>
+  </div>
+  <div class="row">
+    <div class="col fs-2"><b>ABV:</b></div>
+    <div class="col fs-2" id="abv">{{ "{:.2f}".format(abv) }}%</div>
+  </div>
+  <div class="row">
+    <div class="col fs-2"><b>Temperature:</b></div>
+    <div class="col fs-2" id="hTemp"></div>
+  </div>
+  <div class="row">
+    <div class="col fs-2"><b>Battery:</b></div>
+    <div class="col fs-2" id="bV"></div>
+  </div>
+</div>
+<div class="container-fluid text-center my-5">
+  <div class="row">
+    <div class="col">
+      <img src="static/tilt_hydrometer_gravity.png" alt="Hydrometer - Gravity, Temperature and Battery Voltage" />
+    </div>
+  </div>
+</div>
+<script>
+
+$(document).ready(function() {
+  // Latest Hydrometer (from latest_hydrometer.csv)
+  var url = "./data/latest_hydrometer.csv";
+  console.log("url: " + url);
+  $.ajax({
+    type: "GET",
+    url: url,
+    dataType: "text",
+    success: function(data) {
+      processLatestHydrometerData(data);
+    }
+  });
+
+  img=document.getElementsByTagName("img");
+  for(i=0; i<img.length; i++) {
+    img[i].src += '?ts='+ new Date().getTime();
+  }
+});
+
+// "2025-05-14 01:44:46",28.496789999999997,-11.57631,25.54118,4.511233,1.0413574864198099
+
+function processLatestHydrometerData(allText) {
+  console.log("alltext: " + allText);
+  var data = allText.split(',');
+  $("#dateTimeHydrometer").html(new Date(data[0] + " UTC").toLocaleString());
+  $("#hTemp").html(parseFloat(data[3]).toFixed(2) + " &deg;C");
+  $("#bV").html(parseFloat(data[4]).toFixed(2));
+  $("#gravity").html(parseFloat(data[5]).toFixed(3) + " (" + parseFloat(data[1]).toFixed(2) + "&deg;)");
+}
+</script>
+</body>

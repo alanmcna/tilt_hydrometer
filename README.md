@@ -2,7 +2,7 @@
 
 Just like DIY? Yeah, me too. I'm all for supporting the existing market place offerings but I was keen to try this for myself (it didn't look too hard, spoiler - it wasn't) and there's no obvious local solution. 
 
-[static/tilt_hydrometer.jpg]
+![Tilt Hydrometer - final product](static/tilt_hydrometer.jpg)
 
 Also I see many other solutions avoided WIFI 2.4ghz issues by using bluetooth - let's say I much prefer wifi and was keen to see if it was possible
 

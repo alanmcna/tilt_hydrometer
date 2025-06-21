@@ -6,6 +6,8 @@ Just like DIY? Yeah, me too. I'm all for supporting the existing market place of
 
 Also I see many other solutions avoided WIFI 2.4ghz issues by using bluetooth - let's say I much prefer wifi and was keen to see if it was possible
 
+Spolier - the key was to have the wifi 'chip' touching the top of the cap so it clears the water surface ;)
+
 # Can the PICO deepsleep 
 
 Best article on this I have found here https://ghubcoder.github.io/posts/deep-sleeping-the-pico-micropython/

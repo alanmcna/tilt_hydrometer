@@ -24,6 +24,7 @@ The base for this test is therefore https://github.com/ghubcoder/micropython-pic
 * Panasonic NCR18650BD 18650 Lithium Ion Battery https://www.simpower.co.nz/product/individual-cells-batteries/lithium-batteries/18650-batteries/panasonic-ncr18650bd-18650-lithium-ion-battery/
 * 3d printed housing (with pegs) - see models folder for latest iteration
 * Misc - Wires, Solder, etc
+  - I also used some battery plates and springs that slide into the printed housing
 
 ## Software
 

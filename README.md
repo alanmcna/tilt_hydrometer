@@ -8,7 +8,7 @@ This is what I ended up with ...
 
 Did it work .. yes, kindof .. more below.
 
-![Tilt Hydrometer - test run results](static/tilt_hydrometer_gravity.jpg)
+![Tilt Hydrometer - test run results](static/tilt_hydrometer_gravity.png)
 
 Also I see many other solutions avoided WIFI 2.4ghz issues by using bluetooth - let's say I much prefer wifi and was keen to see if it was possible
 

@@ -1,6 +1,11 @@
 # Pico Tilt Hydrometer
 
-Just like DIY? Yeah, me too. I'm all for supporting the existing market place offerings but I was keen to try this for myself (it didn't look too hard, spoiler - it wasn't) and there's no obvious local solution. I also like the pico format and was keen to test some of the deepsleep modes to see if this works. 
+Just like DIY? Yeah, me too. I'm all for supporting the existing market place offerings but I was keen to try this for myself (it didn't look too hard, spoiler - it wasn't) and there's no obvious local solution. 
+
+I also keen to try:
+* the 'impossible' - could a pi pico work with deepsleep mods?
+* to use WIFI - water and 2.4ghz are not friends others use bluetooth - let's say I much prefer wifi and was keen to see if it was possible
+  - that said WIFI is a hungry beast even 10s bursts are to much?
 
 This is what I ended up with ...
 
@@ -11,17 +16,17 @@ Did it work .. yes, kindof .. more below.
 ![Tilt Hydrometer - test run results](static/tilt_hydrometer_reading.png)
 ![Tilt Hydrometer - test gravity results](static/tilt_hydrometer_gravity.png)
 
-Also I see many other solutions avoided WIFI 2.4ghz issues by using bluetooth - let's say I much prefer wifi and was keen to see if it was possible
+Spolier:
+* WIFI - yes comms can work. The key was to have the wifi 'chip' touching the top of the cap so it clears the water surface ;)
+* Deepsleep - jury is still out - I need more testing, so far can only get about 5 days @ 6 hourly readings - try again @ 12 hourly?
 
-Spolier - the key was to have the wifi 'chip' touching the top of the cap so it clears the water surface ;)
-
-# Can the PICO deepsleep 
+# PICO deepsleep 
 
 Best article on this I have found here https://ghubcoder.github.io/posts/deep-sleeping-the-pico-micropython/
 
 The base for this test is therefore https://github.com/ghubcoder/micropython-pico-deepsleep.git
 
-## Hardware 
+# Hardware 
 
 * Centrifuge Tube, 50mL with cap，round bottom - NOTE: 50ml is really too small, check the other tubes they're much bigger maybe 75-120ml - this provides more room for the electronics and tweaking base tilt angles.
   - Pre-forms would be ideal but found them hard to source in NZ without buying blind and hoping, not expensive but kinda key.
@@ -33,7 +38,7 @@ The base for this test is therefore https://github.com/ghubcoder/micropython-pic
 * Misc - Wires, Solder, etc
   - I also used some battery plates and springs that slide into the printed housing
 
-## Software
+# Software
 
 * Pico running compiled 'deepsleep' firmware with main python scripts and libraries
   - See config for wifi connection and post end-point
@@ -44,15 +49,18 @@ The base for this test is therefore https://github.com/ghubcoder/micropython-pic
   - Python
   - R scipts for graphing
 
-## Testing / Calibration
+# Testing / Calibration
 
-* Existing tilt hydrometer with varying sugar solutions
+* Existing tilt hydrometer with varying sugar solutions (choose at what you need to get the polynomial to make sense - see below)
   - 1.000 Water
-  -  1.010
-  -  1.020
-  -  1.040
+  - 1.010
+  - 1.020
+  - 1.030
+  - 1.040
+  - 1.050
 * Plot them a choose a line of best fit (polynomial o3, or a straight line)
 * Ideally have 15-20deg in water raising to close to 40+ in strong solution
   -  The denser the flatter
 
 
+![Tilt Hydrometer - calibration](static/tilt_hydrometer_calibration.png)

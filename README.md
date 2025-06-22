@@ -1,8 +1,14 @@
-# What / why?
+# Pico Tilt Hydrometer
 
-Just like DIY? Yeah, me too. I'm all for supporting the existing market place offerings but I was keen to try this for myself (it didn't look too hard, spoiler - it wasn't) and there's no obvious local solution. 
+Just like DIY? Yeah, me too. I'm all for supporting the existing market place offerings but I was keen to try this for myself (it didn't look too hard, spoiler - it wasn't) and there's no obvious local solution. I also like the pico format and was keen to test some of the deepsleep modes to see if this works. 
+
+This is what I ended up with ...
 
 ![Tilt Hydrometer - final product](static/tilt_hydrometer.jpg)
+
+Did it work .. yes, kindof .. more below.
+
+![Tilt Hydrometer - test run results](static/tilt_hydrometer_gravity.jpg)
 
 Also I see many other solutions avoided WIFI 2.4ghz issues by using bluetooth - let's say I much prefer wifi and was keen to see if it was possible
 

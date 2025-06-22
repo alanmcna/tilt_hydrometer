@@ -61,6 +61,6 @@ The base for this test is therefore https://github.com/ghubcoder/micropython-pic
 * Plot them a choose a line of best fit (polynomial o3, or a straight line)
 * Ideally have 15-20deg in water raising to close to 40+ in strong solution
   -  The denser the flatter
-
+* Update https://github.com/alanmcna/tilt_hydrometer/blob/9d1fc7e8f4eefe1ddf18b97ff8b5bf052c9dcd0c/app.py#L39
 
 ![Tilt Hydrometer - calibration](static/tilt_hydrometer_calibration.png)
